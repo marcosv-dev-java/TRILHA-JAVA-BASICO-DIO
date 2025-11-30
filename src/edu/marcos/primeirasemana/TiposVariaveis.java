@@ -5,4 +5,4 @@ public class TiposVariaveis {
         String nome = "Marcos";
         System.out.println("\033[1;31mMeu nome é "+ nome + " e estou aprendendo a progamar JAVA!!");
     }
-}
+    }
