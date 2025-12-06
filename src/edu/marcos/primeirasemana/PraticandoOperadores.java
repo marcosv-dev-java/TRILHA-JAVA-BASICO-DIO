@@ -25,7 +25,4 @@ public class PraticandoOperadores {
         System.out.println("Você não tem assinatura premium");
     }
     System.out.println(statusAcesso);
-
-
-
 }}

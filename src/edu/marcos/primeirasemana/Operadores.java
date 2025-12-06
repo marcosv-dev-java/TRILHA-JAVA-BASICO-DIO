@@ -11,6 +11,8 @@ public class Operadores {
         System.out.println(numero);
         numero = numero * -1; // TRANSFORMA O NUMERO NEGATIVO EM POSITIVO
         System.out.println(numero);
+
+
         System.out.println("\033[1;35m===PRATICANDO INCREMENTO===\033[m");// PEGAR UM VALOR E APLICAR UMA NOVA ATRIBUIÇÃO
         // DECREMENTAR JÁ É O OPOSTO PEGA O VALOR E REMOVE UMA QUANTIDADE SEILA ALGO ASSIM
 
@@ -25,12 +27,16 @@ public class Operadores {
         isHetero = !isHetero;
         System.out.println(isHetero);
 
+
+
         System.out.println("\033[1;35m===PRATICANDO TENARIO===\033[m"); // É UM IF E ELSE SÓ QUE ESCRITO EM UMA LINHA
         int a,b;
         a = 100;
         b = 20;
         String resultado = a <b ? "A é menor que B": "B é menor que A";
         System.out.println(resultado);
+
+
 
         System.out.println("\033[1;35m===PRATICANDO OPERADORES LOGICOS\033[m");// E COMO SE FOSSE UM AND E OR NO PYTHON
 
@@ -53,12 +59,6 @@ public class Operadores {
             }
         }
         System.out.println("E voce nasceu no ano: " +( ano - idade));
-
-
-
-
-
-
     }
 
 }
