@@ -27,7 +27,7 @@ public class ContaTerminal {
         System.out.println(" ACESSANDO CONTA DE " + nomeCliente);
         System.out.println(" Conta: " + numeroConta);
         System.out.println(" Agência: " + agenciaConta);
-        System.out.println(" Saldo: \033[1;32m" + saldo+"\033[m");
+        System.out.println(" Saldo: \033[1;32m R$" + saldo+"\033[m");
 
 
     }
