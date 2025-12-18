@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class PraticandoFor {
 
     private static void imprimirContagem(int comeco, int fim){
-        for(int num = comeco; fim > num; num++) {
+        for(int num = comeco; fim >= num; num++) {
             System.out.println(num);
         }
     }
