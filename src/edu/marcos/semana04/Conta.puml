@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+Class Admissao{
+
++ foiAprovado(): boolean
+}
+Candidato o-->"0..1" Profissao
+Candidato  *-->"1..*" Telefone
+Candidato *->"1" Endereco
+Candidato *-->"1" Admissao
+Class Candidato{
+- nome: String
++ ligar(numeroTelefone: int): void
+}
+Class Profissao{
+- profissao: String
++ jaTrabalhou(): boolean
+}
+Class Telefone{
+- numero: String
+
+}
+Class Endereco{
+- bairro : String
+- rua : String
+- num : int
++ escreverEndereco(bairro: String, rua: String,num: int): void
+}
+
+
+
+@enduml
