@@ -1,0 +1,21 @@
+@startuml
+class MSNMessenger{
++ enviarMensagem(): void
++ receberMensagem(): void
+}
+class FacebookMessenger{
++ enviarMensagem(): void
++ receberMensagem(): void
+}
+class Telegram{
++ enviarMensagem(): void
++ receberMensagem(): void
+}
+abstract class ServicoMensagemInstantanea{
++ enviarMensagem(): void
++ receberMensagem(): void
+}
+Telegram --> ServicoMensagemInstantanea
+MSNMessenger --> ServicoMensagemInstantanea
+FacebookMessenger --> ServicoMensagemInstantanea
+@enduml
