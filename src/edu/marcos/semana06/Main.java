@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         int intA = 1;
         int intB = intA;
-        // O valor intA atribui o intB não necessariamente faz um ligação
+        // O valor intA atribui o intB não necessariamente faz uma ligação
        System.out.println("IntA = "+ intA + " intB = "+ intB);
         intA = 2;
         // Percebe que se fizer uma alterção na variavel intA não muda na intB
