@@ -35,9 +35,44 @@ public class Main {
         }
         pessoa.setNome(nome);
         System.out.println("Boas vindas, "+ pessoa.getNome()+"!");
-        System.out.println("Seu limite é ");
+        System.out.println("Seu limite é " + pessoa.getLimite());
+        System.out.println("Seu plano é " +
+                pessoa.getPlano());
+        Biblioteca biblioteca = new Biblioteca();
+        while (true) {
+            System.out.println("""
+                    ===== Selecione uma opção =====
+                    1 - Adicionar um livro
+                    2 - Emprestar livro
+                    3 - Devolver livro
+                    4 - Ver livros disponíveis
+                    5 - Sair""");
+            int opcao = input.nextInt();
+            input.nextLine();
+            if (opcao == 5) break;
+            else if(pessoa.getLimite() == 0){
+                System.out.println("LIMITE ATINGIDO!, Saindo do progama..");
+                break;}
+            else if (opcao == 1){
+                    pessoa.setLimite(pessoa.getLimite()-1);
+                    System.out.println("Limite atual: "+ pessoa.getLimite());
+                    System.out.print("Digite o nome do autor do livro: ");
+                    String nomeAutor = input.nextLine();
+                    Autor autor = new Autor(nomeAutor);
+                    System.out.print("Digite o titulo do livro: ");
+                    String titulo = input.nextLine();
+                    Livro livro = new Livro(autor,titulo);
+                    biblioteca.adicionarLivro(livro);
+                    System.out.println("Livro "+ livro.getTitulo()+ " adicionado com sucesso!");
+                }
+            else if (opcao == 2){
+
+            }
+
+            }
+        }
+
 
 
 
     }
-}

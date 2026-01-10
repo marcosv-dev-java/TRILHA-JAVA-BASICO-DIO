@@ -23,19 +23,11 @@ public class Livro  {
         return this.disponivel;
     }
 
-    public Autor getAutor() {
-        return autor;
-    }
-
-    public void setAutor(Autor autor) {
-        this.autor = autor;
+    public String getAutor() {
+        return autor.getNome();
     }
 
     public String getTitulo() {
         return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
     }
 }
