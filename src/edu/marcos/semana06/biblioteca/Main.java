@@ -39,6 +39,7 @@ public class Main {
         System.out.println("Seu plano é " +
                 pessoa.getPlano());
         Biblioteca biblioteca = new Biblioteca();
+        Livro livro = null;
         while (true) {
             System.out.println("""
                     ===== Selecione uma opção =====
@@ -55,18 +56,45 @@ public class Main {
                 break;}
             else if (opcao == 1){
                     pessoa.setLimite(pessoa.getLimite()-1);
-                    System.out.println("Limite atual: "+ pessoa.getLimite());
                     System.out.print("Digite o nome do autor do livro: ");
                     String nomeAutor = input.nextLine();
                     Autor autor = new Autor(nomeAutor);
                     System.out.print("Digite o titulo do livro: ");
                     String titulo = input.nextLine();
-                    Livro livro = new Livro(autor,titulo);
+                    livro = new Livro(autor, titulo);
                     biblioteca.adicionarLivro(livro);
                     System.out.println("Livro "+ livro.getTitulo()+ " adicionado com sucesso!");
+                    System.out.println("Limite atual: "+ pessoa.getLimite());
                 }
             else if (opcao == 2){
+                if (livro == null) {
+                    System.out.println("\033[1;31mERRO: Nenhum livro cadastrado\033[m");
 
+                }
+                else if (!livro.isDisponivel()){
+                    System.out.println("Livro não disponível!");
+
+                }
+                else if (livro.isDisponivel()) {
+                    livro.emprestar();
+                    pessoa.setLimite(pessoa.getLimite()-1);
+                    System.out.println("Limite atual: "+ pessoa.getLimite());
+                }
+
+            }
+            else if (opcao == 3){
+                if (livro == null) {
+                    System.out.println("\033[1;31mERRO: Nenhum livro cadastrado\033[m");
+                }
+                else if (!livro.isDisponivel()) {
+                    livro.devolver();
+                    pessoa.setLimite(pessoa.getLimite()-1);
+                    System.out.println("Limite atual: "+ pessoa.getLimite());
+                }
+                else System.out.println("\033[1;31mERRO: Nenhum livro disponível para devolução!\033[m");
+            }
+            else if(opcao == 4){
+                biblioteca.mostrarLivrosDisponiveis();
             }
 
             }

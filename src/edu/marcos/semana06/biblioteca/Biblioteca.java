@@ -15,6 +15,7 @@ public class Biblioteca {
             if (l.isDisponivel()) {
                 System.out.println("Título: " + l.getTitulo());
                 System.out.println("Autor: "+l.getAutor());
+                System.out.println("____________________________________");
             }
         }
     }
