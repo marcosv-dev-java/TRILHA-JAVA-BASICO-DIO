@@ -1,8 +1,4 @@
 package edu.marcos.semana07.pilha;
-
-
-
-
 public class Main {
     public static void main(String[] args) {
         PilhaHistorico pilhaHistorico = new PilhaHistorico();
