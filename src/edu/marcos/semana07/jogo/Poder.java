@@ -40,7 +40,7 @@ public enum Poder {
         return tipoPoder;
     }
     public void receberDano(int dano) {
-        this.hp =- dano;
+        this.hp -= dano;
     }
 
     public int getHp() {
