@@ -1,19 +1,19 @@
 package edu.marcos.semana07.jogo;
 
 public enum Poder {
-    FOGO(200,"FOGO", 800){
+    FOGO(200,"\033[1;31mFOGO\033[m", 800){
         public void executarUltimate(Poder inimigo){
             System.out.println("Inimigo queimou e perdeu \033[1;31m70hp\033[m!");
             inimigo.receberDano(70);
         }
     },
-    RAIO(150,"RAIO", 650){
+    RAIO(150,"\033[1;33mRAIO\033[m", 650){
         public void executarUltimate(Poder inimigo){
             System.out.println("Inimigo levou um raio de alta potência!! perdeu \033[1;31m120hp\033[m!");
             inimigo.receberDano(120);
         }
     },
-    VOID(300, "VOID", 300){
+    VOID(400, "\033[1;35mVOID\033[m", 300){
         public void executarUltimate(Poder inimigo){
             System.out.println("INIMIGO FOI SUGADO POR 2 PORTAIS!! perdeu \033[1;31m400hp\033[m!");
             inimigo.receberDano(400);
