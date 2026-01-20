@@ -33,28 +33,43 @@ public class ListaEncadeada <T> {
         noAuxiliar.setProximoNo(novoNo); // quando chegar no ultimo, ele deixar de apontar para null, e passa a pontar para o novo elemento que foi adicionado
 
     }
-    private No<T> getNo(int index){
+    private No<T> getNo(int index){ // Metodo que retorna um nó em uma posição especifica definida pelo indice socilitado
         validaIndice(index);
-        No<T> noAuxiliar = referenciaEntrada;
-        No<T> noRetorno = null;
-        for (int i = 0; i <= index ;i++){
+        No<T> noAuxiliar = referenciaEntrada; // Nó auxiliar que vai entrar na lista pelo começo dela
+        No<T> noRetorno = null; // Nó que vai ser retornado, inicialmente começa como null
+        for (int i = 0; i <= index ;i++){ // estrutura de repetição que caminha até o indice solicitado
             noRetorno = noAuxiliar;
             noAuxiliar = noAuxiliar.getProximoNo();
         }
         return noRetorno;
     }
-    private void validaIndice(int index){
+    private void validaIndice(int index){ // metodo que valida se o indice é maior que o tamanho da lista
         if (index >= this.size()){
             int ultimoIndice = this.size() - 1;
             throw new IndexOutOfBoundsException("\033[1;31mNão existe conteúdo no índice "+ index + " desta lista!\033[m Essa lista só vai até o indice " + ultimoIndice);
         }
     }
+    public T remove(int index){ // Metodo para remover Nó em determinado indice
+        No<T> noRemovido = this.getNo(index); // Usa o metodo getNo para atibuir o nó no indice ao no removido
+        if (index == 0){ // Se o indice for igual a 0, a lista vai dar erro por conta de não ter mais referencia de entrada
+            referenciaEntrada = noRemovido.getProximoNo(); // Referencia de entrada passa pro proximo nó, esquecendo o que tava antes, por exemplo em um contexto de números, a entrada atual é o 0, a entrada passa a ser o 1.
+            return noRemovido.getConteudo(); // Retorna o nó que vai ser removido
+        }
+        No<T> noAnterior = getNo(index-1); // Antes de removermos o nó, precisamos mudar para quem o nó anterior vai apontar, para que ele não fique apontando para null, então criamos um objeto para representar o nó anterior
+        noAnterior.setProximoNo(noRemovido.getProximoNo()); // o Nó anterior do que será removido, passa a ver o proximo nó, por exemplo 1 que depois viria o 2 pula direto pro 3, ficando assim = 1, 3, 4, 5, 6..
+        return noRemovido.getConteudo();//Retorna o nó que vai ser removido
+    }
 
 
-    public T get(int index){
+    public T get(int index){ // Metodo com mesmo intuito do getNo, porém é publico
         return getNo(index).getConteudo();
 
     }
 
 
+    public String toString() {
+        return "ListaEncadeada{" +
+                "referenciaEntrada=" + referenciaEntrada +
+                '}'; // TODO Personalizar o metodo to string
+    }
 }
