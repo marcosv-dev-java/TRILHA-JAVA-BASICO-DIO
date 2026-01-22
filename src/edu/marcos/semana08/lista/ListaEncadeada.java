@@ -18,7 +18,6 @@ public class ListaEncadeada <T> {
                 referenciaAux = referenciaAux.getProximoNo(); // Pula pro proximo da lista
             }
         return tamanhoLista;
-
     }
     public void add(T conteudo){ // Metodo para adicionar um novo elemento na lista, esse metodo em si adiciona pelo final da lista
         No<T> novoNo = new No<>(conteudo); // Objeto local que vai representar o conteudo que será adicionado
@@ -59,17 +58,19 @@ public class ListaEncadeada <T> {
         noAnterior.setProximoNo(noRemovido.getProximoNo()); // o Nó anterior do que será removido, passa a ver o proximo nó, por exemplo 1 que depois viria o 2 pula direto pro 3, ficando assim = 1, 3, 4, 5, 6..
         return noRemovido.getConteudo();//Retorna o nó que vai ser removido
     }
-
-
     public T get(int index){ // Metodo com mesmo intuito do getNo, porém é publico
         return getNo(index).getConteudo();
 
     }
-
-
     public String toString() {
-        return "ListaEncadeada{" +
-                "referenciaEntrada=" + referenciaEntrada +
-                '}'; // TODO Personalizar o metodo to string
+        String strRetorno = ""; //String que será retornada, inicialmente começa vazia
+        No<T> noAuxiliar = referenciaEntrada; // Nó auxiliar, que vai passando pro proximo nó ate chegar a null
+        for (int i = 0; i <= this.size()-1; i++){ // Estrutura de repetição que anda pela lista inteira
+            strRetorno += "[No{conteudo=" + noAuxiliar.getConteudo() + "}]---->"; // Escreve o conteudo atual
+
+            noAuxiliar = noAuxiliar.getProximoNo(); //passa pro proximo
+        }
+        strRetorno += "null"; // quando acabar a estrutura aponta pra null
+        return strRetorno;
     }
 }
