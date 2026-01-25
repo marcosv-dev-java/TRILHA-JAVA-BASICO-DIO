@@ -1,32 +1,17 @@
 package edu.marcos.semana08.supermercado;
 
-public class Pao {
-    private TipoPao tipoPao;
-    private Pao proximoPao = null;
+public abstract class Pao {
+    private TipoPao tipo;
 
-    public TipoPao getTipoPao() {
-        return tipoPao;
+
+    public Pao(TipoPao tipo){
+        this.tipo = tipo;
+    }
+    public TipoPao getTipoPao(){
+        return tipo;
+    }
+    public double getValor(){
+        return tipo.getValor();
     }
 
-    public Pao() {
-    }
-
-    public void setTipoPao(TipoPao tipoPao) {
-        this.tipoPao = tipoPao;
-    }
-
-    public Pao getProximoPao() {
-        return proximoPao;
-    }
-
-    public void setProximoPao(Pao proximoPao) {
-        this.proximoPao = proximoPao;
-    }
-
-    @Override
-    public String toString() {
-        return "[Pao{" +
-                "TipoPao=" + tipoPao +
-                '}';
-    }
 }

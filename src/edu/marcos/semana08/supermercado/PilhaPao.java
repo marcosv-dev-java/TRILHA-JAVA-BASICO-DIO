@@ -1,46 +1,50 @@
 package edu.marcos.semana08.supermercado;
 
-public class PilhaPao {
-    private Pao refProximoPao;
-     // Referencia para quando adicionar um pão.
-
+public class PilhaPao<T extends Pao> {
+    private No<T> topo;
 
     public PilhaPao() {
-        this.refProximoPao = null; // Quando criar uma pilha de pão, o proximo começa como null
-    }
-    public boolean isEmpty(){
-        return this.refProximoPao == null;
+        this.topo = null;
     }
 
-    public void novoPao(Pao novoPao){
-        Pao auxiliarPao = refProximoPao;
-        refProximoPao = novoPao;
-        novoPao.setProximoPao(auxiliarPao);
+    public boolean isEmpty() {
+        return this.topo == null;
     }
 
-    public  Pao ultimoPao(){
-        return this.refProximoPao;
+    public void push(T novoPao){
+       No<T> novoNo = new No<>(novoPao);
+       novoNo.setProximoNo(topo);
+       this.topo = novoNo;
     }
 
-    public Pao removerPao(){
-        if(!this.isEmpty()) {
-            Pao paoRemovido = refProximoPao;
-            refProximoPao = refProximoPao.getProximoPao();
-            return paoRemovido;
+    public T pop(){
+        if(!isEmpty()) {
+            T noRemovido = topo.getConteudo();
+            topo = topo.getProximoNo();
+            return noRemovido;
         }
-        return null;
-    }
+        return null;}
 
+
+    public T top(){
+        return this.topo.getConteudo();
+    }
 
     public String toString(){
-         String stringRetorno = "";
-         Pao auxiliarPao = refProximoPao;
-         while(auxiliarPao != null){
-
-             stringRetorno += "[Pao{TipoPao="+ auxiliarPao.getTipoPao() + "}]-->";
-             auxiliarPao = auxiliarPao.getProximoPao();
+        String stringRetorno = "";
+        if (this.isEmpty()) {
+            stringRetorno = "Vazio";
         }
-         stringRetorno += "null";
+        else {
+            No<T> noAuxiliar = this.topo;
+            while (noAuxiliar != null) {
+                stringRetorno +=  noAuxiliar.toString();
+                noAuxiliar = noAuxiliar.getProximoNo();
+            }
+        }
+
         return stringRetorno;
     }
+
+
 }
