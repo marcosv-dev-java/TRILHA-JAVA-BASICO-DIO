@@ -13,5 +13,8 @@ public abstract class Pao {
     public double getValor(){
         return tipo.getValor();
     }
+    public String toString() {
+        return this.getTipoPao().toString();
+    }
 
 }

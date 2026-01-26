@@ -91,19 +91,19 @@ public class Mercado {
                 System.out.println("==== BAGUETES ====");
                 System.out.println(pilhaBaguetes);
                 System.out.println("____________________________________________________");
-                System.out.println(pilhaPaoFrances);
                 System.out.println("==== PÃO FRÂNCES ====");
+                System.out.println(pilhaPaoFrances);
                 System.out.println("____________________________________________________");
-                System.out.println(pilhaPaoItalianos);
                 System.out.println("==== PÃO ITALIANO ====");
+                System.out.println(pilhaPaoItalianos);
                 System.out.println("____________________________________________________");
             }
             else if (opcao == 5){
-                System.out.print("Saindo...");
+                System.out.println("Saindo...");
                 break;
             }
         }
-        System.out.println("Saindo do mercado!!");
+        System.out.println("Volte sempre!!");
         input.close();
     }
 }

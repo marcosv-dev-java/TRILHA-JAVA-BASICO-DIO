@@ -13,6 +13,7 @@ public class Pessoa {
     public Pessoa(String nome, double dinheiro) {
         this.nome = nome;
         this.dinheiro = dinheiro;
+        totalPessoasMercadado++;
     }
 
     public static int getTotalPessoasMercadado() {

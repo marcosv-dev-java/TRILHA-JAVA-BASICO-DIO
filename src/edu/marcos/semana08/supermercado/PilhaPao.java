@@ -38,9 +38,10 @@ public class PilhaPao<T extends Pao> {
         else {
             No<T> noAuxiliar = this.topo;
             while (noAuxiliar != null) {
-                stringRetorno +=  noAuxiliar.toString();
+                stringRetorno +=  noAuxiliar.getConteudo().toString() + "-->";
                 noAuxiliar = noAuxiliar.getProximoNo();
             }
+            stringRetorno += "null";
         }
 
         return stringRetorno;

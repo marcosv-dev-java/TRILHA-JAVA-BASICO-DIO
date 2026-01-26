@@ -12,8 +12,10 @@ public class ServicoMercado {
         if(!this.pilha.isEmpty()){
             Pao paoNoTopo = this.pilha.top();
             if (pessoa.getDinheiro() >= paoNoTopo.getValor()){
+                System.out.println("Comprando o pão "+ paoNoTopo.getTipoPao().toString()+"...");
                 pessoa.setDinheiro(pessoa.getDinheiro() - paoNoTopo.getValor());
                 pilha.pop();
+                System.out.println("Pão comprado com sucesso! Saldo atual: "+ pessoa.getDinheiro());
             }
 
         }

@@ -4,4 +4,5 @@ public class PaoFrances extends Pao{
     public PaoFrances() {
         super(TipoPao.FRANCES);
     }
+
 }
