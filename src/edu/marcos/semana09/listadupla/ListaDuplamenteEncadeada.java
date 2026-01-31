@@ -1,5 +1,7 @@
 package edu.marcos.semana09.listadupla;
 
+
+
 public class ListaDuplamenteEncadeada<T> {
     private NoDuplo<T> primeiroNo;
     private NoDuplo<T> ultimoNo;
@@ -62,13 +64,41 @@ public class ListaDuplamenteEncadeada<T> {
             novoNo.getNoPrevio().setNoProximo(novoNo);
         }
         tamanhoLista++;
+    }
 
-
+    public void remove(int index){ // Metodo para remover em um determinado indice
+        if(index == 0) { // Se for o primeiro da lista
+            primeiroNo = primeiroNo.getNoProximo(); // primeiro nó passa a ser o proximo dele
+            if(primeiroNo != null){ // condição que valida se a lista só tinha 1 elemento, se por exemplo dar primeiroNo.getNoProximo(); retornar null, significa que não tinha proximo, ou seja a lista só tinha 1 elemento
+                primeiroNo.setNoPrevio(null); // se a lista tiver mais de 1 elemento, o novo primeiro nó que antes enxergava o antigo primeiro nó passa a enxergar null.
+            }
+        }else{ // se não for o primeiro da lista
+            NoDuplo<T> noAuxiliar = getNo(index); // Objeto para ir até o indice
+            noAuxiliar.getNoPrevio().setNoProximo(noAuxiliar.getNoProximo()); // O nó auxiliar vai ir pro anterior dele e o proximo do nó anterior vai ser o proximo do nó auxiliar.
+            if(noAuxiliar != ultimoNo){ // Se não for o ultimo nó
+                noAuxiliar.getNoProximo().setNoPrevio(noAuxiliar.getNoPrevio());
+                // No auxiliar vai pular pro proximo e o proximo vai enxergar o anterior do nó auxiliar
+            }
+            else{ // Se for o ultimo nó
+                ultimoNo = noAuxiliar.getNoPrevio(); // o ultimo nó passa a ser o no anterior do ultimo
+            }
+        }
+        this.tamanhoLista--;
     }
 
 
+    @Override
+    public String toString() {
+        String strRetorno = "";
+        NoDuplo<T> noAuxiliar = primeiroNo;
+        for (int i = 0; i < this.size(); i++){
+            strRetorno += "______________________________________\n";
+            strRetorno += noAuxiliar.toString() + "\n";
+            strRetorno += "Index ( "+ i +" )\n";
+            noAuxiliar = noAuxiliar.getNoProximo();
 
-
-
-
+        }
+        strRetorno += "============== null ================";
+        return strRetorno;
+    }
 }
