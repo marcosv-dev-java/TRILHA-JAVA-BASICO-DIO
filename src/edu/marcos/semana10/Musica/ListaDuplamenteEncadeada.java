@@ -1,4 +1,4 @@
-package edu.marcos.semana09.listadupla;
+package edu.marcos.semana10.Musica;
 
 public class ListaDuplamenteEncadeada<T> {
     private NoDuplo<T> primeiroNo;
@@ -29,7 +29,7 @@ public class ListaDuplamenteEncadeada<T> {
     }
 
     public void add(T elemento){ // Metodo add() sem precisar de indice, ele apenas adiciona ao final da lista
-       NoDuplo<T> novoNo = new NoDuplo<>(elemento) ;
+        NoDuplo<T> novoNo = new NoDuplo<>(elemento) ;
         novoNo.setNoProximo(null);
         novoNo.setNoPrevio(ultimoNo);
         if(primeiroNo == null){
@@ -96,7 +96,8 @@ public class ListaDuplamenteEncadeada<T> {
             noAuxiliar = noAuxiliar.getNoProximo();
 
         }
-        strRetorno += "============== null ================";
+        strRetorno += "______________________________________";
+        strRetorno += "\nnull";
         return strRetorno;
     }
 }
