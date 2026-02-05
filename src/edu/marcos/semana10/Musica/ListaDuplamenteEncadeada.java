@@ -91,7 +91,7 @@ public class ListaDuplamenteEncadeada<T> {
         NoDuplo<T> noAuxiliar = primeiroNo;
         for (int i = 0; i < this.size(); i++){
             strRetorno += "______________________________________\n";
-            strRetorno += noAuxiliar.toString() + "\n";
+            strRetorno += noAuxiliar.getConteudo().toString() + "\n";
             strRetorno += "Index ( "+ i +" )\n";
             noAuxiliar = noAuxiliar.getNoProximo();
 

@@ -28,4 +28,10 @@ public class Musica {
     }
 
 
+    public String toString() {
+        return "             Musica\n" +
+                "Nome: " + nome + '\n' +
+                "Nome do Artista: " + nomeArtista + '\n' +
+                "Duração: " + duracao;
+    }
 }
