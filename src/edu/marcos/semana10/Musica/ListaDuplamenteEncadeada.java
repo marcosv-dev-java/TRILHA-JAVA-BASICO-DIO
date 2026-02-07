@@ -60,7 +60,7 @@ public class ListaDuplamenteEncadeada<T> {
         tamanhoLista++;
     }
 
-    public void remove(int index){ // Metodo para remover em um determinado indice
+    public void remove(int index){// Metodo para remover em um determinado indice
         if(index == 0) { // Se for o primeiro da lista
             primeiroNo = primeiroNo.getNoProximo(); // primeiro nó passa a ser o proximo dele
             if(primeiroNo != null){ // condição que valida se a lista só tinha 1 elemento, se por exemplo dar primeiroNo.getNoProximo(); retornar null, significa que não tinha proximo, ou seja a lista só tinha 1 elemento

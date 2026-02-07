@@ -50,45 +50,48 @@ public abstract class PlataformaMusica {
 
 
     public void removerMusica(int index){
-        lista.remove(index);
-    }
-
-
-    public Musica tocarMusica(int index) {
-        this.musicaAtual = lista.getNo(index);
-        if (musicaAtual != null){
-            return musicaAtual.getConteudo();
+        if (this.lista.size() == 0){
+            System.out.println("Nenhuma musica adicionada!");
+        } else if (index > this.lista.size() || index < 0){
+            System.out.println("Indice incorreto!");
         }
-
-        return null;
+        else lista.remove(index);
     }
 
-    public Musica proximaMusica(){
+
+    public void tocarMusica(int index) {
+        this.musicaAtual = lista.getNo(index);
+    }
+
+    public void proximaMusica(){
         if (musicaAtual == null){
             System.out.println("Nenhuma musica adicionada!");
         }
         else if (musicaAtual.getNoProximo() != null){
             musicaAtual = musicaAtual.getNoProximo();
-            return musicaAtual.getConteudo();
         }
         else {
             System.out.println("Você já está na ultima música!");
         }
 
-        return null;
     }
 
-    public Musica musicaAnterior(){
+    public void musicaAnterior(){
         if (musicaAtual == null){
             System.out.println("Nenhuma musica adicionada!");
         }
-        else if (musicaAtual.getNoPrevio() == null){
+        else if (musicaAtual.getNoPrevio() != null){
             musicaAtual = musicaAtual.getNoPrevio();
-            return musicaAtual.getConteudo();
         }
-        else System.out.println("Você já está na ultima música");
+        else System.out.println("Você já está na primeira música!");
 
-        return null;
+    }
+    public String listarMusicaAtual(){
+        if (this.musicaAtual == null){
+            return "null";
+        }
+
+        return this.musicaAtual.getConteudo().toString();
     }
 
 
