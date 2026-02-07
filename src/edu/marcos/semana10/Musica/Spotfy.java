@@ -1,20 +1,21 @@
 package edu.marcos.semana10.Musica;
 
-public class Spotfy implements  PlataformaMusica{
+public class Spotfy extends PlataformaMusica{
 
-    public void tocarMusica() {
 
+    public Spotfy(ListaDuplamenteEncadeada<Musica> lista) {
+        super(lista);
     }
+
+
+    public String getTitulo() {
+        return "Spotfy";
+    }
+
 
     public void menuPlataforma(boolean listarMusica) {
-
+        super.menuPlataforma(listarMusica);
     }
 
-    public void adicionarMusica() {
 
-    }
-
-    public void removerMusica(int index) {
-
-    }
 }

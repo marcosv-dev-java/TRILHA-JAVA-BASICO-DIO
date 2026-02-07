@@ -1,12 +1,68 @@
 package edu.marcos.semana10.Musica;
+import java.util.Scanner;
 
-public interface PlataformaMusica {
+public abstract class PlataformaMusica {
+    private NoDuplo<Musica> musicaAtual;
+
+    private ListaDuplamenteEncadeada<Musica> lista;
+
+    public PlataformaMusica(ListaDuplamenteEncadeada<Musica> lista) {
+        this.lista = lista;
+    }
+
+    public abstract String getTitulo();
+
+    public void menuPlataforma(boolean listarMusica) {
+       String titulo = getTitulo();
+        int larguraTotal = 40;
+        int larguraTexto = titulo.length();
+        int espacosPelaMetade = (larguraTotal - larguraTexto) / 2;
+
+        System.out.println("\033[7m");
+        System.out.println("=".repeat(larguraTotal));
+        System.out.print(" ".repeat(espacosPelaMetade));
+        System.out.println(titulo);
+        System.out.println("=".repeat(larguraTotal));
+
+        System.out.println("\033[m");
+        System.out.println("Musicas disponiveis: " + lista.size());
+        if (listarMusica){
+            System.out.println(lista.toString());
+        }
 
 
-    public void tocarMusica();
+    }
+    public void cadastrarMusica() {
+        Scanner sc = new Scanner(System.in);
 
-    public void menuPlataforma(boolean listarMusica);
-    public void adicionarMusica();
-    public void removerMusica(int index);
+        System.out.print("Nome da musica: ");
+        String nome = sc.nextLine();
+        System.out.print("Nome do artista: ");
+        String nomeArtista = sc.nextLine();
+        System.out.print("Duração: ");
+        String duracao = sc.nextLine();
+
+        Musica musicaNova = new Musica(nome, nomeArtista,duracao);
+
+        lista.add(musicaNova);
+        System.out.println("Musica adicionada com sucesso!");
+    }
+
+
+    public void removerMusica(int index){
+        lista.remove(index);
+    }
+
+
+    public Musica tocarMusica(int index) {
+        this.musicaAtual = lista.get(index);
+        Musica musica = lista.get(index);
+        lista.remove(index);
+        return musica;
+
+    }
+
+
+
 
 }

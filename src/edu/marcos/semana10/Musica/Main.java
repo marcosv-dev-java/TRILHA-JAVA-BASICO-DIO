@@ -1,17 +1,13 @@
 package edu.marcos.semana10.Musica;
-
-
-
-
 public class Main {
     public static void main(String[] args) {
         ListaDuplamenteEncadeada<Musica> lista = new ListaDuplamenteEncadeada<>();
+        PlataformaMusica plataformaAtual = null;
 
-        PlataformaMusica plataformaMusica = new Soundcloud(lista);
+        System.out.println("Boas vindas ao ");
 
-        plataformaMusica.adicionarMusica();
-        plataformaMusica.menuPlataforma(true);
-        // TODO: Criar metodo to string nas classes filhas e simplificar codigo.
+        // TODO: fazer metodos proxima musica, musica anterior e tocar musica
+
 
 
 

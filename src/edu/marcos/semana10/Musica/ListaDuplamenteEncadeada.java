@@ -15,16 +15,12 @@ public class ListaDuplamenteEncadeada<T> {
         return this.tamanhoLista;
     }
 
-    private NoDuplo<T> getNo(int index){ // Metodo privado para ir até o indice que foi pedido.
+    public NoDuplo<T> getNo(int index){ // Metodo privado para ir até o indice que foi pedido.
         NoDuplo<T> noAuxiliar = primeiroNo;
         for(int i = 0; (i < index) && (noAuxiliar != null); i++){
             noAuxiliar = noAuxiliar.getNoProximo();
         }
         return noAuxiliar;
-
-    }
-    public T get(int index){
-        return this.getNo(index).getConteudo(); // Dessa lista, ele vai pegar o nó que está no indice que foi solicitado, e vai pegar o conteúdo desse nó.
 
     }
 
