@@ -6,7 +6,7 @@ public class Main {
 
         System.out.println("Boas vindas ao ");
 
-        // TODO: fazer metodos proxima musica, musica anterior e tocar musica
+
 
 
 

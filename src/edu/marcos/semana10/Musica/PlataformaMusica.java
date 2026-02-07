@@ -55,11 +55,40 @@ public abstract class PlataformaMusica {
 
 
     public Musica tocarMusica(int index) {
-        this.musicaAtual = lista.get(index);
-        Musica musica = lista.get(index);
-        lista.remove(index);
-        return musica;
+        this.musicaAtual = lista.getNo(index);
+        if (musicaAtual != null){
+            return musicaAtual.getConteudo();
+        }
 
+        return null;
+    }
+
+    public Musica proximaMusica(){
+        if (musicaAtual == null){
+            System.out.println("Nenhuma musica adicionada!");
+        }
+        else if (musicaAtual.getNoProximo() != null){
+            musicaAtual = musicaAtual.getNoProximo();
+            return musicaAtual.getConteudo();
+        }
+        else {
+            System.out.println("Você já está na ultima música!");
+        }
+
+        return null;
+    }
+
+    public Musica musicaAnterior(){
+        if (musicaAtual == null){
+            System.out.println("Nenhuma musica adicionada!");
+        }
+        else if (musicaAtual.getNoPrevio() == null){
+            musicaAtual = musicaAtual.getNoPrevio();
+            return musicaAtual.getConteudo();
+        }
+        else System.out.println("Você já está na ultima música");
+
+        return null;
     }
 
 
