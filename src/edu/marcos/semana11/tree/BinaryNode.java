@@ -10,6 +10,9 @@ public class BinaryNode<T extends Comparable<T>> { // qualquer objeto que for de
         this.left = this.right = null;
     }
 
+    public BinaryNode() {
+    }
+
     public T getContent() {
         return content;
     }
