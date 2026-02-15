@@ -54,11 +54,11 @@ public class Main {
                 conta.depositar(valor);
             }else System.out.println("Ok continuando progama!");
 
-            String sacar = "";
-            while(!sacar.equalsIgnoreCase("S")  && !sacar.equalsIgnoreCase("N")){
+           String sacar;
+            do{
                 System.out.println("Deseja sacar? [S/N]: ");
-                sacar = input.nextLine().trim().toUpperCase();
-            }
+                 sacar = input.nextLine().trim().toUpperCase();
+            }while(!sacar.equalsIgnoreCase("S")  && !sacar.equalsIgnoreCase("N"));
             if(sacar.equalsIgnoreCase("S")){
                 System.out.println("Quanto deseja sacar? ");
                 double valor = input.nextDouble();
