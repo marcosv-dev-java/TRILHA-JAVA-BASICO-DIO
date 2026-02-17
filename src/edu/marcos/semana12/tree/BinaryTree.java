@@ -33,18 +33,18 @@ public class BinaryTree<T extends Comparable<T>> {
     private void showInOrder(BinaryNode<T> current){
         if (current != null){
             showInOrder(current.getLeft());
-            System.out.println(current.getContent() + ", ");
+            System.out.print(current.getContent() + ", ");
             showInOrder(current.getRight());
         }
     }
 
     public void showPreOrder(){
-        System.out.println(" Exibindo pre ordem");
+        System.out.print(" Exibindo pre ordem");
         showPreOrder(this.root);
     }
     private void showPreOrder(BinaryNode<T> current){
         if (current != null){
-            System.out.println(current.getContent() + ", ");
+            System.out.print(current.getContent() + ", ");
             showPreOrder(current.getLeft());
             showPreOrder(current.getRight());
 
@@ -61,7 +61,7 @@ public class BinaryTree<T extends Comparable<T>> {
         if (current != null){
             showPostOrder(current.getLeft());
             showPostOrder(current.getRight());
-            System.out.println(current.getContent() + ", ");
+            System.out.print(current.getContent() + ", ");
         }
     }
     public void remove(T content){ //Recebe o conteudo que vai ser removido
@@ -172,9 +172,5 @@ public class BinaryTree<T extends Comparable<T>> {
             System.out.println("\033[1;31mContent not found. Catch\033[m");
         }
     }
-
-
-
-
 
 }
