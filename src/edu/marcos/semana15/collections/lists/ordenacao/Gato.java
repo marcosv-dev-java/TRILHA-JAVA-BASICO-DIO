@@ -1,16 +1,17 @@
 package edu.marcos.semana15.collections.lists.ordenacao;
 
-public class Gato {
+public class Gato implements Comparable<Gato>{
+
     private String nome;
-    private Integer idade;
+    private Integer meses;
     private String cor;
 
     public Gato() {
     }
 
-    public Gato(String nome, int idade, String cor) {
+    public Gato(String nome, int meses, String cor) {
         this.nome = nome;
-        this.idade = idade;
+        this.meses = meses;
         this.cor = cor;
     }
 
@@ -22,12 +23,12 @@ public class Gato {
         this.nome = nome;
     }
 
-    public int getIdade() {
-        return idade;
+    public int getMeses() {
+        return meses;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setMeses(int meses) {
+        this.meses = meses;
     }
 
     public String getCor() {
@@ -42,8 +43,13 @@ public class Gato {
     public String toString() {
         return "Gato{" +
                 "nome='" + nome + '\'' +
-                ", idade=" + idade +
+                ", meses=" + meses +
                 ", cor='" + cor + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Gato gato) {
+        return this.getNome().compareToIgnoreCase(gato.getNome());
     }
 }
