@@ -19,7 +19,7 @@ public class ExemploLinkedList {
         //Mostrar a primeira nota da nova lista sem removê-lo:
         System.out.println(notas.getFirst());
 
-        //Mostrar  a primeira nota da nova lista removendo a nota:
+        //Mostrar a primeira nota da nova lista removendo a nota:
         System.out.println(notas.removeFirst());
         System.out.println(notas);
 
