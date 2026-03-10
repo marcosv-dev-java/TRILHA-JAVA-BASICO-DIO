@@ -30,5 +30,14 @@ public class ExemploOrdenacaoList {
         gatos.sort(new ComparatorIdade());
         System.out.println(gatos);
 
+        System.out.println("-- Ordem Cor -- ");
+        gatos.sort(new ComparatorCor());
+        System.out.println(gatos);
+
+        System.out.println("-- Ordem Nome/Cor/Idade --");
+        gatos.sort(new ComparatorNomeCorIdade());
+        System.out.println(gatos);
+
+
     }
 }
