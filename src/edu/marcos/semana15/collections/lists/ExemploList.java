@@ -60,16 +60,8 @@ public class ExemploList {
         System.out.println(notas);
 
         System.out.println("Remova as notas menores que 7 e exiba a lista: ");
+        notas.removeIf(next -> next < 7);
 
-
-
-        Iterator<Double> iterator2 = notas.iterator();
-        while(iterator2.hasNext()){
-            double next = iterator2.next();
-            if(next < 7){
-                iterator2.remove();
-            }
-        }
         System.out.println(notas);
 
         System.out.println("Apague toda a lista: ");
