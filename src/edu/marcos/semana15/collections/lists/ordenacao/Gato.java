@@ -1,5 +1,7 @@
 package edu.marcos.semana15.collections.lists.ordenacao;
 
+import java.util.Objects;
+
 public class Gato implements Comparable<Gato>{
 
     private String nome;
@@ -7,6 +9,18 @@ public class Gato implements Comparable<Gato>{
     private String cor;
 
     public Gato() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Gato gato = (Gato) o;
+        return Objects.equals(nome, gato.nome) && Objects.equals(meses, gato.meses) && Objects.equals(cor, gato.cor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, meses, cor);
     }
 
     public Gato(String nome, int meses, String cor) {
