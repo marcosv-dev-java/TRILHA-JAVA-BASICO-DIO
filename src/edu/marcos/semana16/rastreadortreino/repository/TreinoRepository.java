@@ -1,6 +1,8 @@
 package edu.marcos.semana16.rastreadortreino.repository;
 import edu.marcos.semana16.rastreadortreino.model.ChaveSessao;
 import edu.marcos.semana16.rastreadortreino.model.SessaoTreino;
+
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -30,5 +32,9 @@ public class TreinoRepository {
 
     public int getUltimaSemana() {
         return ultimaSemana;
+    }
+
+    public Map<ChaveSessao, SessaoTreino> getDiaDeTreino() {
+        return Collections.unmodifiableMap(diaDeTreino);
     }
 }

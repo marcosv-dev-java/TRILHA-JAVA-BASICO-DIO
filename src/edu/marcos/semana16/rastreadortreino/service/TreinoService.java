@@ -1,7 +1,6 @@
 package edu.marcos.semana16.rastreadortreino.service;
 
 import edu.marcos.semana16.rastreadortreino.model.ChaveSessao;
-import edu.marcos.semana16.rastreadortreino.model.Exercicio;
 import edu.marcos.semana16.rastreadortreino.model.SessaoTreino;
 import edu.marcos.semana16.rastreadortreino.repository.TreinoRepository;
 
@@ -15,7 +14,7 @@ public class TreinoService {
     }
 
     public double calcularProgesso(ChaveSessao anterior,ChaveSessao atual ) {
-        double porcentagem = 0;
+        double porcentagem;
         SessaoTreino sessaoAnterior = this.treinoRepository.buscarSessao(anterior);
         SessaoTreino sessaoAtual = this.treinoRepository.buscarSessao(atual);
 

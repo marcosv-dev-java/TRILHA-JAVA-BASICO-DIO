@@ -10,5 +10,12 @@ public class MenuService {
         String linha = "=".repeat(espaco);
         System.out.println(linha + " " + texto + " " + linha);
     }
+    public void printAnimado(String texto, int velocidade) throws InterruptedException {
+        for (char c : texto.toCharArray()) {
+            System.out.print(c);
+            Thread.sleep(velocidade); // milissegundos por letra
+        }
+        System.out.println();
+    }
 
 }
