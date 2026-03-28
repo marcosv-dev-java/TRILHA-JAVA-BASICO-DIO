@@ -6,6 +6,7 @@ import java.util.Map;
 
 
 public class TreinoRepository {
+    private int ultimaSemana;
     private final Map<ChaveSessao, SessaoTreino> diaDeTreino;
 
     public TreinoRepository() {
@@ -16,6 +17,7 @@ public class TreinoRepository {
         if (this.diaDeTreino.containsKey(chaveSessao)) {
             throw new IllegalArgumentException ("Sessão já adicionada!");
         }
+        ultimaSemana = chaveSessao.semana();
         this.diaDeTreino.put(chaveSessao, sessaoTreino);
     }
     public SessaoTreino buscarSessao(ChaveSessao chaveSessao){
@@ -26,5 +28,7 @@ public class TreinoRepository {
 
 }
 
-
+    public int getUltimaSemana() {
+        return ultimaSemana;
+    }
 }

@@ -32,6 +32,14 @@ public class TreinoService {
         return porcentagem;
 
     }
+
+    public void salvarTreino(ChaveSessao chaveSessao, SessaoTreino sessaoTreino) {
+        if (chaveSessao.semana() < this.treinoRepository.getUltimaSemana()){
+            throw new IllegalArgumentException("Não é possivel adicionar uma semana anterior a ultima registrada!");
+        }
+       treinoRepository.salvarTreino(chaveSessao, sessaoTreino);
+
+    }
     //TODO fazer método para salvar dia de treino, filtrar por semana/grupo muscular etc.
 
 }
