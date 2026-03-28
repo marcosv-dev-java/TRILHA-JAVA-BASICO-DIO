@@ -1,26 +1,33 @@
 package edu.marcos.semana16.rastreadortreino.service;
 
 import edu.marcos.semana16.rastreadortreino.model.ChaveSessao;
-import edu.marcos.semana16.rastreadortreino.model.GrupoMuscular;
+import edu.marcos.semana16.rastreadortreino.model.Exercicio;
 import edu.marcos.semana16.rastreadortreino.model.SessaoTreino;
 import edu.marcos.semana16.rastreadortreino.repository.TreinoRepository;
 
-public class TreinoService {
-    SessaoTreino sessaoAtual;
+import java.util.List;
 
-    public TreinoService(SessaoTreino sessaoAtual) {
-        this.sessaoAtual = sessaoAtual;
+public class TreinoService {
+    TreinoRepository treinoRepository;
+
+    public TreinoService(TreinoRepository treinoRepository) {
+        this.treinoRepository = treinoRepository;
     }
 
-    public int calcularProgesso(TreinoRepository historico, int semana, GrupoMuscular grupoMuscular) {
-        SessaoTreino sessaoPassada = historico.buscarSessao(new ChaveSessao(semana, grupoMuscular));
-        if (!this.sessaoAtual.equals(sessaoPassada)){
-            throw new IllegalArgumentException("Grupo muscular diferentes!");
-        }
-        int porcentagem = 0;
-        int volumePassado;
+    public double calcularProgesso(ChaveSessao anterior,ChaveSessao atual ) {
+        double porcentagem = 0;
+        SessaoTreino sessaoAnterior = this.treinoRepository.buscarSessao(anterior);
+        SessaoTreino sessaoAtual = this.treinoRepository.buscarSessao(atual);
 
+        double volumeAnterior = sessaoAnterior.getSeriesExercicio().values().stream()
+                .flatMap(List::stream)
+                .mapToDouble(s -> s.carga() * s.repeticoes()).sum();
 
+        double volumeAtual = sessaoAtual.getSeriesExercicio().values().stream()
+                .flatMap(List::stream)
+                .mapToDouble(s -> s.carga() * s.repeticoes()).sum();
+
+        porcentagem = (volumeAtual - volumeAnterior) / volumeAnterior * 100;
 
         return porcentagem;
 

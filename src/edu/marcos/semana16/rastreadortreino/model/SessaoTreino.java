@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class SessaoTreino {
-    private Map<Exercicio, List<Serie>> seriesExercicio;
+    private final Map<Exercicio, List<Serie>> seriesExercicio;
     private final GrupoMuscular grupoMuscular;
     private final LocalDate data;
 
