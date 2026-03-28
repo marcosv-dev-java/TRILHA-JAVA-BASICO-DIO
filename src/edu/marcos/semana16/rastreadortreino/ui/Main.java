@@ -4,11 +4,15 @@ import edu.marcos.semana16.rastreadortreino.model.*;
 import edu.marcos.semana16.rastreadortreino.repository.TreinoRepository;
 import edu.marcos.semana16.rastreadortreino.service.MenuService;
 import edu.marcos.semana16.rastreadortreino.service.TreinoService;
+import edu.marcos.semana16.rastreadortreino.storage.TreinoStorage;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
-        TreinoRepository repositorio = new TreinoRepository();
+    public static void main(String[] args) throws InterruptedException, IOException {
+        TreinoStorage storage = new TreinoStorage();
+        TreinoRepository repositorio = new TreinoRepository(storage);
         TreinoService service = new TreinoService(repositorio);
         Scanner sc = new Scanner(System.in);
         MenuService menuService = new MenuService();
