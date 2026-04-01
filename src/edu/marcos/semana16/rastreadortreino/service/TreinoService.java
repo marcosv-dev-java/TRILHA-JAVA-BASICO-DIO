@@ -13,7 +13,7 @@ public class TreinoService {
         this.treinoRepository = treinoRepository;
     }
 
-    public double calcularProgesso(ChaveSessao anterior,ChaveSessao atual ) {
+    public double calcularProgresso(ChaveSessao anterior, ChaveSessao atual ) {
         double porcentagem;
         SessaoTreino sessaoAnterior = this.treinoRepository.buscarSessao(anterior);
         SessaoTreino sessaoAtual = this.treinoRepository.buscarSessao(atual);
@@ -39,6 +39,6 @@ public class TreinoService {
        treinoRepository.salvarTreino(chaveSessao, sessaoTreino);
 
     }
-    //TODO fazer método para salvar dia de treino, filtrar por semana/grupo muscular etc.
+
 
 }

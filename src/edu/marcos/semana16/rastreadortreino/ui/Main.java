@@ -77,7 +77,7 @@ public class Main {
                 int semanaAnterior = sc.nextInt();
                 ChaveSessao chaveAnterior = new ChaveSessao(semanaAnterior, grupoAtual);
                 ChaveSessao chaveAtual = new ChaveSessao(semanaAtual, grupoAtual);
-                double progresso = service.calcularProgesso(chaveAnterior, chaveAtual);
+                double progresso = service.calcularProgresso(chaveAnterior, chaveAtual);
                 System.out.println("A semana " + semanaAtual);
                 System.out.println("Comparado com a semana " + semanaAnterior);
 
