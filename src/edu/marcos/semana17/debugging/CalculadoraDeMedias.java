@@ -1,4 +1,4 @@
-package semana17.debugging;
+package edu.marcos.semana17.debugging;
 import java.util.Scanner;
 
 public class CalculadoraDeMedias {

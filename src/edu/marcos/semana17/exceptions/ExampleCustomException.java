@@ -1,4 +1,4 @@
-package semana17.exceptions;
+package edu.marcos.semana17.exceptions;
 
 public class ExampleCustomException {
     public static void main(String[] args) throws DivisionException {

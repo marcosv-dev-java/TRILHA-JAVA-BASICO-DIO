@@ -1,4 +1,4 @@
-package semana17.debugging;
+package edu.marcos.semana17.debugging;
 
 public class Main {
     public static void main(String[] args) {
