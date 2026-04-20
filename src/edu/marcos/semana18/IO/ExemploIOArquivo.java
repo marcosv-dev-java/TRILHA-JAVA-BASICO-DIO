@@ -22,6 +22,6 @@ public class ExemploIOArquivo {
             sb.append("\n");
         }
         br.close();
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 }
