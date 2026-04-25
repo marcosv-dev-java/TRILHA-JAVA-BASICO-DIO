@@ -1,8 +1,6 @@
-package edu.marcos.semana18.IO;
+package edu.marcos.semana18.IO.DIO;
 
 import java.io.*;
-import java.util.Objects;
-import java.util.Scanner;
 
 public class Exercicio3IOCaracter {
     public static void main(String[] args) {

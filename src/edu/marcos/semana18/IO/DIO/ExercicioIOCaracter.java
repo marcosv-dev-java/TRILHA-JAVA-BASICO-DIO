@@ -1,4 +1,4 @@
-package edu.marcos.semana18.IO;
+package edu.marcos.semana18.IO.DIO;
 
 import java.io.*;
 

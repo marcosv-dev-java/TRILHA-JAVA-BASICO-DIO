@@ -3,6 +3,7 @@ package edu.marcos.semana16.rastreadortreino.storage;
 import edu.marcos.semana16.rastreadortreino.model.*;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -10,7 +11,7 @@ public class TreinoStorage {
     private static final String CAMINHO = "treinos.txt";
 
     public void salvar(Map<ChaveSessao, SessaoTreino> dados) {
-        try (FileWriter fw = new FileWriter(CAMINHO)) {
+        try (FileWriter fw = new FileWriter(CAMINHO, StandardCharsets.UTF_8)) {
             dados.forEach((chave, treino) -> {
                 treino.getSeriesExercicio().forEach((exercicio, series) -> {
                     series.forEach(serie -> {
@@ -28,7 +29,7 @@ public class TreinoStorage {
         }
     }
 
-    public Map<ChaveSessao, SessaoTreino> carregar() throws IOException {
+    public Map<ChaveSessao, SessaoTreino> carregar()  {
         Map<ChaveSessao, SessaoTreino> dados = new LinkedHashMap<>();
         File arquivo = new File(CAMINHO);
         if (!arquivo.exists()) return dados;
