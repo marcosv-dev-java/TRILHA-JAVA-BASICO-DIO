@@ -1,27 +1,35 @@
 package edu.marcos.semana18.IO.leiturabytes;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
+
 
 public class ExemploIOBytes {
     public static void main(String[] args) {
+        try {
+            copyFile();
+        } catch (IOException e) {
+            System.err.println("Erro ao copiar!" + e.getCause());
+        }
 
     }
 
     public static void copyFile() throws IOException {
         File file = new File("C:\\Users\\Marcos\\IdeaProjects\\TRILHA-JAVA-BASICO\\arquivodetexto-copy.txt");
-        try(InputStream in = new FileInputStream(file)){
-        }
-    }
+        File fileCopy = new File(file.getName().substring(0, file.getName().indexOf("-")).concat("-copy2.txt"));
+        try (BufferedInputStream bufferInput = new BufferedInputStream(new FileInputStream(file));
+             BufferedOutputStream bufferOutput = new BufferedOutputStream(new FileOutputStream(fileCopy))) {
 
-    public static void qualquerNome() throws IOException {
-        File arquivo = new File("logs.txt");
-        String linha;
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(arquivo), StandardCharsets.UTF_8))){
-            while ((linha = br.readLine()) != null) {
-                System.out.println(linha);
+
+            int bytesRead;
+            while ((bytesRead = bufferInput.read()) != -1) {
+                bufferOutput.write((char)bytesRead);
+
             }
+            bufferOutput.flush();
+
+
+
         }
 
-    }
-}
+
+    }}

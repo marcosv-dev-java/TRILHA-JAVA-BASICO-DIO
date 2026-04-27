@@ -18,7 +18,7 @@ public class DiarioEstudo {
             salvarEntrada(entrada);
             System.out.println("Salvo!");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Erro ao salvar!" + e.getCause());
         }
 
     }
