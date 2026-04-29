@@ -34,7 +34,7 @@ public class TreinoStorage {
         File arquivo = new File(CAMINHO);
         if (!arquivo.exists()) return dados;
 
-        try (BufferedReader br = new BufferedReader(new FileReader(CAMINHO))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(CAMINHO, StandardCharsets.UTF_8))) {
             String linha;
             while ((linha = br.readLine()) != null) {
 
